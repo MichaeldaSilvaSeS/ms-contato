@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: ms-contato
+  cloud: 
+    discovery:
+      client:
+        simple:
+          local:
+            service-id: ms-contato
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  datasource:
+    initialization-mode: embedded
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: 
+    driver-class-name: org.h2.Driver
+    
+server:
+  port: 8181
+  servlet:
+    context-path: /api
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    env:
+      enabled: true
+    info:
+      enabled: true            
+    health:
+      enabled: true
+  server:
+    port: 8182
+  
