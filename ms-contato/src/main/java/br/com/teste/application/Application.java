@@ -1,4 +1,4 @@
-package br.com.teste.application.contato;
+package br.com.teste.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -20,4 +20,8 @@ public class ContatosSaidaDto {
 	public void add(ContatoSaidaDto contato){
 		contatos.add(contato);
 	}
+	
+	public void add(List<ContatoSaidaDto> contatos){
+		contatos.addAll(contatos);
+	}
 }
