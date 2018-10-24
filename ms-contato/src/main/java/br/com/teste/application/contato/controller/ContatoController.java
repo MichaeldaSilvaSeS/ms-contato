@@ -7,7 +7,6 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.teste.application.contato.dto.saida.ContatoEntradaDto;
@@ -22,8 +21,7 @@ public class ContatoController {
 	@Autowired
 	private AgendaService service;
 	
-	@RequestMapping(path=URL_CONTROLLER+"/contatos",produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
-	@GetMapping
+	@GetMapping(path=URL_CONTROLLER+"/contatos",produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ContatosSaidaDto contatosGet() {
 		ContatoSaidaDto contato = new ContatoSaidaDto();
 		contato.setNome("Michael da Silva");
