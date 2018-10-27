@@ -22,6 +22,6 @@ public class ContatosSaidaDto {
 	}
 	
 	public void add(List<ContatoSaidaDto> contatos){
-		contatos.addAll(contatos);
+		this.contatos.addAll(contatos);
 	}
 }

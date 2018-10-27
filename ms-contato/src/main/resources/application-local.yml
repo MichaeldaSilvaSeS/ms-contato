@@ -9,7 +9,8 @@ spring:
             service-id: ms-contato
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
+    generate-ddl: true
   datasource:
     initialization-mode: embedded
     url: jdbc:h2:mem:testdb

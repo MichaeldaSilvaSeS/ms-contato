@@ -18,5 +18,9 @@ public class ContatoEntradaDto {
 	@JsonProperty(value="nome")
 	@NotNull
 	private String nome;
+	
+	public void nomeCompleto(String nome, String sobrenome) {
+		this.nome = nome.trim() + " " + sobrenome.trim();
+	}
 
 }

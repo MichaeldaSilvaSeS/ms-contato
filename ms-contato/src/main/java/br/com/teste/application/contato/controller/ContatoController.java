@@ -29,7 +29,7 @@ public class ContatoController {
 		ContatosSaidaDto saida = new ContatosSaidaDto();
 		saida.add(contato);
 		
-		saida.add(service.listar());		
+		saida.add(service.listar());
 		return saida;
 	}
 	
