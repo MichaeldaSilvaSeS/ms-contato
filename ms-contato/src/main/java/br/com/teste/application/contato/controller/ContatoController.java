@@ -33,7 +33,6 @@ public class ContatoController {
 		return saida;
 	}
 	
-	//@RequestMapping(path=URL_CONTROLLER+"/contatos",produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@PostMapping(path=URL_CONTROLLER+"/contatos",produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public void contatosPost(@Valid @RequestBody ContatoEntradaDto contatoEntradaDto) {
 		

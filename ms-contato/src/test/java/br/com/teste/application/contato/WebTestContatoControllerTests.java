@@ -32,7 +32,7 @@ import br.com.teste.application.Application;
 public class WebTestContatoControllerTests {
 
 	protected MockMvc mvc;
-
+	
 	@Autowired
 	protected WebApplicationContext webApplicationContext;
 
@@ -60,6 +60,5 @@ public class WebTestContatoControllerTests {
 				.andReturn();
 
 		assertEquals(200, result.getResponse().getStatus());
-		System.out.println(result.getResponse().getContentAsString());
 	}
 }

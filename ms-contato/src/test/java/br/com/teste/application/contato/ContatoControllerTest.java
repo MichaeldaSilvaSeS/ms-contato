@@ -5,27 +5,27 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.util.Collections;
 
+import javax.ws.rs.core.MediaType;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Profile;
-import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import br.com.teste.application.Application;
+import br.com.teste.application.contato.controller.ContatoController;
 import br.com.teste.application.contato.dto.saida.ContatoSaidaDto;
 import br.com.teste.application.contato.service.AgendaService;
 
-@Profile("local")
+@ActiveProfiles(value= {"local"})
 @RunWith(SpringRunner.class)
-@SpringBootTest(properties = { "spring.profiles.active=local" }, classes = Application.class)
-//@WebMvcTest({ContatoController.class})
+@WebMvcTest(useDefaultFilters=true,secure=false,controllers= {ContatoController.class})
 public class ContatoControllerTest {
-
+		
     @Autowired
     private MockMvc mockMvc;
     
@@ -36,7 +36,7 @@ public class ContatoControllerTest {
     public void simpleResult() throws Exception {
         Mockito.when(agendaService.listar())
                 .thenReturn(Collections.<ContatoSaidaDto>emptyList());
-
+        
         this.mockMvc.perform(get("/v1/agenda/contatos")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
