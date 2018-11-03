@@ -3,6 +3,8 @@ package br.com.teste.application.contato.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,11 +22,13 @@ public class ContatoController {
 	
 	@Autowired
 	private AgendaService service;
+	@Autowired
+	private MessageSource messageSource;
 	
 	@GetMapping(path=URL_CONTROLLER+"/contatos",produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ContatosSaidaDto contatosGet() {
 		ContatoSaidaDto contato = new ContatoSaidaDto();
-		contato.setNome("Michael da Silva");
+		contato.setNome(messageSource.getMessage("ms.nome", null, LocaleContextHolder.getLocale()));
 		
 		ContatosSaidaDto saida = new ContatosSaidaDto();
 		saida.add(contato);

@@ -23,6 +23,12 @@ server:
   port: 8181
   servlet:
     context-path: /api
+  ssl:
+    enabled: true
+    key-store: classpath:keystore.p12
+    key-store-type: PKCS12
+    key-store-password: password
+    key-alias: contato
 eureka:
   client:
     service-url:
@@ -31,6 +37,7 @@ eureka:
     fetch-registry: true
   instance:
     prefer-ip-address: true
+    
     
 management:
   endpoints:
@@ -45,5 +52,5 @@ management:
     health:
       enabled: true
   server:
-    port: 8182
+    port: 8180
   
