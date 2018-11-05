@@ -21,7 +21,8 @@ import br.com.teste.application.contato.dto.saida.ErroSaidaDto;
 public class ExceptionHandlerController extends ResponseEntityExceptionHandler{
 
 	@ExceptionHandler({RuntimeException.class})
-	public ResponseEntity<?> excecao(){
+	public ResponseEntity<?> excecao(RuntimeException e){
+		e.printStackTrace();
 		return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	

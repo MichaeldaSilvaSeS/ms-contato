@@ -15,6 +15,7 @@ import br.com.teste.application.contato.dto.saida.ContatoEntradaDto;
 import br.com.teste.application.contato.dto.saida.ContatoSaidaDto;
 import br.com.teste.application.contato.dto.saida.ContatosSaidaDto;
 import br.com.teste.application.contato.service.AgendaService;
+import br.com.teste.application.feign.BikeAPIClient;
 
 @RestController
 public class ContatoController {
@@ -24,9 +25,13 @@ public class ContatoController {
 	private AgendaService service;
 	@Autowired
 	private MessageSource messageSource;
+	@Autowired
+	private BikeAPIClient phoneAPIClient;
 	
 	@GetMapping(path=URL_CONTROLLER+"/contatos",produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ContatosSaidaDto contatosGet() {
+		phoneAPIClient.getBikes("norisbike-nurnberg");
+		
 		ContatoSaidaDto contato = new ContatoSaidaDto();
 		contato.setNome(messageSource.getMessage("ms.nome", null, LocaleContextHolder.getLocale()));
 		

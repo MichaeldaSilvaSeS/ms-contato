@@ -53,4 +53,7 @@ management:
       enabled: true
   server:
     port: 8180
-  
+
+logging:
+  level:
+    feign: FULL
