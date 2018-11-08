@@ -15,7 +15,7 @@ public class TrocarNomeCompletoUseCase {
 	private AgendaService agendaService;
 
 	public List<ContatoSaidaDto> trocarNome() {
-		List<ContatoSaidaDto> listar = agendaService.listar();
+		List<ContatoSaidaDto> listar = agendaService.listar(false);
 
 		listar
 			.stream()

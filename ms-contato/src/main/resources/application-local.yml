@@ -25,10 +25,10 @@ server:
     context-path: /api
   ssl:
     enabled: true
-    key-store: classpath:keystore.p12
+    key-store: classpath:localhost.p12
     key-store-type: PKCS12
     key-store-password: password
-    key-alias: contato
+    key-alias: Michael
 eureka:
   client:
     service-url:
@@ -51,9 +51,21 @@ management:
       enabled: true            
     health:
       enabled: true
+    hystrix:
+      stream:
+        enabled: true
   server:
     port: 8180
 
 logging:
   level:
     feign: FULL
+    
+feign:
+  client:
+    config:
+      default:
+        logger-level: full
+
+  hystrix:
+    enabled: true

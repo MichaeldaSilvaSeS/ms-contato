@@ -30,15 +30,20 @@ public class ContatoController {
 	
 	@GetMapping(path=URL_CONTROLLER+"/contatos",produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
 	public ContatosSaidaDto contatosGet() {
-		phoneAPIClient.getBikes("norisbike-nurnberg");
+		String resposta = phoneAPIClient.getBikes("norisbike-nurnberg");
 		
 		ContatoSaidaDto contato = new ContatoSaidaDto();
 		contato.setNome(messageSource.getMessage("ms.nome", null, LocaleContextHolder.getLocale()));
 		
+		if( resposta.isEmpty() )
+			contato.setNome("Vazio - " + contato.getNome());
+		else
+			contato.setNome("Cheio - " + contato.getNome());
+		
 		ContatosSaidaDto saida = new ContatosSaidaDto();
 		saida.add(contato);
 		
-		saida.add(service.listar());
+		saida.add(service.listar(resposta.isEmpty()));
 		return saida;
 	}
 	
