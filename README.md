@@ -3,6 +3,8 @@ Spring boot cloud
 
 
 https://www.devmedia.com.br/utilizando-criptografia-simetrica-em-java/31170
+https://www.mkyong.com/java/how-to-read-utf-8-xml-file-in-java-sax-parser/
+
 
 
 		String salt = KeyGenerators.string().generateKey();
