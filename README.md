@@ -2,6 +2,8 @@
 Spring boot cloud
 
 
+https://www.devmedia.com.br/utilizando-criptografia-simetrica-em-java/31170
+
 
 		String salt = KeyGenerators.string().generateKey();
 		System.out.println(salt);
